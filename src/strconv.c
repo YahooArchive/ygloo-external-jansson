@@ -23,7 +23,11 @@ static void to_locale(strbuffer_t *strbuffer)
     const char *point;
     char *pos;
 
+#ifdef ANDROID
+    point = '.';
+#else
     point = localeconv()->decimal_point;
+#endif
     if(*point == '.') {
         /* No conversion needed */
         return;
@@ -39,7 +43,11 @@ static void from_locale(char *buffer)
     const char *point;
     char *pos;
 
+#ifdef ANDROID
+    point = '.';
+#else
     point = localeconv()->decimal_point;
+#endif
     if(*point == '.') {
         /* No conversion needed */
         return;
