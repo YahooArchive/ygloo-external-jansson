@@ -24,7 +24,7 @@ static void to_locale(strbuffer_t *strbuffer)
     char *pos;
 
 #ifdef ANDROID
-    point = '.';
+    point = ".";
 #else
     point = localeconv()->decimal_point;
 #endif
@@ -44,7 +44,7 @@ static void from_locale(char *buffer)
     char *pos;
 
 #ifdef ANDROID
-    point = '.';
+    point = ".";
 #else
     point = localeconv()->decimal_point;
 #endif
